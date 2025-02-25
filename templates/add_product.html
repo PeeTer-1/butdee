@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">➕ Add Product</h1>
+        
+        <form action="" method="POST" enctype="multipart/form-data" class="card p-3">
+            <div class="mb-3">
+                <label class="form-label">Product Name:</label>
+                <input type="text" name="product_name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Price:</label>
+                <input type="number" step="0.01" name="price" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description:</label>
+                <textarea name="description" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Images:</label>
+                <input type="file" name="images" accept="image/*" class="form-control" multiple>
+            </div>
+
+            <button type="submit" class="btn btn-success">Add Product</button>
+        </form>
+
+        <a href="{{ url_for('product_list') }}" class="btn btn-secondary mt-3">⬅ Back to Products</a>
+    </div>
+    <h1>Add Product</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label>Product Name:</label>
+        <input type="text" name="product_name" required><br>
+
+        <label>Price:</label>
+        <input type="number" step="0.01" name="price" required><br>
+
+        <label>Description:</label>
+        <textarea name="description"></textarea><br>
+
+        <label>Image:</label>
+        <input type="file" name="image" accept="image/*"><br>
+
+        <button type="submit">Add Product</button>
+    </form>
+    <a href="{{ url_for('product_list') }}">Back to Products</a>
+</body>
+</html>

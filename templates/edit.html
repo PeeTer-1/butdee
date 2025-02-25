@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label>Product Name:</label>
+        <input type="text" name="product_name" value="{{ product.product_name }}" required><br>
+
+        <label>Price:</label>
+        <input type="number" step="0.01" name="price" value="{{ product.price }}" required><br>
+
+        <label>Description:</label>
+        <textarea name="description">{{ product.description }}</textarea><br>
+
+        <label>Current Image:</label><br>
+        {% if product.image %}
+            <img src="{{ url_for('static', filename='uploads/' + product.image) }}" alt="Product Image" width="100"><br>
+        {% endif %}
+
+        <label>New Image (optional):</label>
+        <input type="file" name="image" accept="image/*"><br>
+
+        <button type="submit">Update Product</button>
+    </form>
+
+    <a href="{{ url_for('product_list') }}">Back to Products</a>
+</body>
+</html>
